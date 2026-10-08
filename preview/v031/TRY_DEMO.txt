@@ -1,0 +1,24 @@
+TSUBASA FIELD PILOT v0.3.1 — DỮ LIỆU GIẢ / CHỜ REVIEW
+
+1. Chuẩn bị → Xem gói mẫu synthetic → Xem trước → Nạp thành NHÁP.
+2. Chọn người duyệt khác người lập, nhập căn cứ DEMO://review, tick đã đối chiếu → Duyệt danh mục demo. Đây chỉ là khóa quy trình local, không xác thực người hay quyền server.
+3. Xác minh sẵn sàng riêng cho hạng mục: lịch và kỹ thuật cần kết quả, bằng chứng, rủi ro/khoảng chuẩn bị, người kiểm và xác nhận demo. Duyệt gói/hợp đồng KHÔNG tự đánh chuẩn bị Đủ. Chỉ dùng bằng chứng giả trong diễn tập, không áp dụng thi công thật.
+4. Hiện trường → chọn vị trí/hạng mục. Dữ liệu gốc chỉ đọc; nhập khối lượng, chọn trạng thái/checklist, ghi EVD. Ghi chú khi bất thường. Thông tin ca/người nằm trong phần mở rộng. Phiếu tiếp theo giữ context nhưng xóa khối lượng/EVD/kết quả kiểm/bất thường.
+5. Thiếu/đổi/phát sinh: tạo yêu cầu chờ duyệt. Nạp JSON gói version mới bằng Nạp gói công việc (tách biệt Phục hồi backup). Preview thay đổi, duyệt nguồn và xử lý yêu cầu. Không sửa trực tiếp item/đơn vị/nguồn của phiếu cũ. Nháp nguồn cũ được giữ nhưng phải đối chiếu lại, không tự chuyển sang nguồn mới. Trong demo, mọi request/bất thường chưa xử lý đều chặn ghi nhận thực hiện; vẫn được lưu nháp.
+6. Backup: tải JSON v5, kiểm tệp thật trong Downloads; phục hồi thử vào origin hoặc hồ sơ browser riêng, có backup trước nhập. Nháp chưa gửi có tệp JSON riêng, chưa có import nháp tự động; giữ và đối chiếu thủ công. Ảnh gốc nằm ngoài app, EVD chỉ là tham chiếu. Giữ cả JSON chính + nháp + ảnh ở nơi thứ hai được owner chọn.
+
+CHUYỂN PHIÊN BẢN
+v0.3.1 dùng schema5 và key riêng, không tự migrate/ghi đè v0.2.x. Backup v4 bị từ chối rõ; giữ app cũ và backup cũ để đọc/xuất. Đây là demo workflow mới, không thay đầy đủ sổ hồ sơ cũ. Đường URL khác nhưng cùng origin vẫn không là cách tách dữ liệu cho cùng phiên bản.
+
+GIỚI HẠN
+1000 event toàn kho gồm nạp/duyệt/prep/phiếu/request;100 revision/phiếu;100 version gói; state3.000.000 code units; backup16MB. Quota có thể chặn sớm. Phải xử lý giới hạn/lưu trữ/lịch sử trước vận hành thật, chưa gỡ guard. Không xóa lịch sử/dữ liệu thật để thử.
+Chỉ một người/một tab, chưa backend/auth/đồng bộ, không chữ ký hay thông báo thật. Kiểm toàn vẹn local không chống người sửa nhất quán cả lịch sử và dữ liệu.
+Chưa bảo đảm HTTPS offline reload/cold reopen; chưa service worker. Chưa test Android thực, chưa đo30giây, font có thể fallback. 60 test model/storage/UI-VM PASS (48 ca trước +4 probe reviewer được tác giả chạy lại +8 ca mới); chưa phải verdict độc lập mới. 117 test baseline là hồ sơ riêng, không tính vào hồi quy v0.3.1. Cần Android thật kiểm touch/layout360–430px, download/picker/restore, quota, Camera/back, offline/reload trước cho dùng hiện trường.
+
+SỬA NHÁP VÀ CẢNH BÁO KHO CŨ
+Phiếu tiếp theo giữ binding + nguồn snapshot của nháp. Trong Nháp đang giữ, bấm Mở lại nháp để lấy lại khối lượng/EVD/checklist/ca/người trên đúng nguồn; readiness và revision vẫn được kiểm lúc lưu. Nguồn đã đổi/rút item thì nháp cũ mở chỉ đọc, không tự chuyển sang nguồn mới.
+Nháp parked từ v0.3.0 đã mất binding không thể khôi phục nguồn bằng cách đoán: app giữ actuals/EVD, báo thiếu nguồn và cho tải để đối chiếu. Nháp còn key nguồn chính xác có thể đọc context từ lịch sử giữ trong kho.
+Khởi động phát hiện kho v0.2.3 thì báo dữ liệu cũ còn nguyên và liên kết app cũ để đọc/xuất full backup. Có thêm xuất kho cũ THÔ để dự phòng; không phải full backup v4. Không tự migrate, sửa hoặc xóa kho cũ. v0.3.1 giữ schema5/keyv030 tương thích v0.3.0.
+Đây chỉ là import gói JSON upstream có khai báo local; không tự nối hệ thống nguồn hay xác thực người duyệt.
+
+ROLLOUT: chỉ preview riêng; root https://tsubasagroup-source.github.io/tsubasa-field-pilot-demo/ phải giữ v0.2.3 vì link app cũ trỏ về đây. Chưa thay root, chưa deploy trong gói review này. Cần review độc lập và HTTPS browser/Android QA; offline reload/cold reopen vẫn chưa bảo đảm.
