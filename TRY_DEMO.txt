@@ -1,0 +1,11 @@
+TSUBASA FIELD PILOT v0.2.3-public-sanitized — CHỈ DỮ LIỆU GIẢ
+
+Bản công khai dùng PROJECT-DEMO-SYNTHETIC và NV-DEMO-01. Không nhập hồ sơ khách hàng, thông tin cá nhân hoặc tài liệu thương mại thật. Không có tài khoản/phân quyền/đồng bộ.
+Mở URL HTTPS bằng Chrome Android thường, một tab. Tạo BCN NHÁP giả, lưu rồi bổ sung revision; kiểm dấu Việt, nút và bàn phím.
+Tải full backup JSON, kiểm tệp thực trong Downloads; khôi phục thử vào origin hoặc hồ sơ QA tách biệt, giữ backup trước nhập. Kho thuộc browser/origin; đổi URL path không tách kho. Không xóa dữ liệu thật để thử.
+App chỉ giữ EVD/tên/vị trí/người giữ ảnh. Chụp bằng Camera ngoài app, giữ ảnh gốc và bản sao thứ hai ngoài điện thoại; JSON không chứa ảnh.
+
+GIỚI HẠN DEMO: tối đa1000 event thay đổi nghiệp vụ toàn kho và100 revision mỗi hồ sơ/BCN (gồm bản đầu). Mở/xem/reload/export không cộng event; import giữ nguyên lịch sử. Dung lượng/quota có thể chặn sớm hơn. Tới trần không ghi thêm được; kho hợp lệ vẫn đọc/export được sau khi hủy phần chỉnh sửa chưa lưu. Những giới hạn này PHẢI được giải quyết bằng thiết kế lưu trữ/lịch sử, kiểm thử dung lượng và phục hồi trước vận hành thật; bản demo này chưa sửa/gỡ giới hạn. Không tự xóa lịch sử để né trần.
+
+117/117 kiểm thử logic/VM PASS cho bản sanitized; chưa review độc lập mới, chưa kiểm Android thật. Cần kiểm tải JSON/picker/restore/quota, touch và font Việt. Chưa bảo đảm offline reload hoặc đóng/mở lại; nhãn Offline trong app không chứng minh điều đó. Khi lỗi: giữ backup, dừng nhập, ghi lỗi và dùng dự phòng.
+Bản này có mã dự án và key lưu riêng; không tự chuyển kho hoặc nhập backup từ bản trước sanitization. Font chính thức chưa nhúng; có thể fallback. Không coi là production-ready.
